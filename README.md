@@ -31,6 +31,7 @@
 Github: [darui00kara/phoenix_tutorial_v1_2 (master)](https://github.com/darui00kara/phoenix_tutorial_v1_2)  
 
 # Index
+
 Rails Tutorial for Phoenix  
 |> What is Phoenix-Framework?  
 |> Create Project  
@@ -48,10 +49,10 @@ Rails Tutorial for Phoenix
 # Bibliography
 
 [Ruby on Rails Tutorial](http://railstutorial.jp/)  
-[Github - aforward/safetybox](https://github.com/aforward/safetybox)
-[Github - drewolson/scrivener](https://github.com/drewolson/scrivener)
-[Github - mgwidmann/scrivener_html](https://github.com/mgwidmann/scrivener_html)
-[Github - doomspork/scrivener_headers](https://github.com/doomspork/scrivener_headers)
-[Github - antonmi/espec](https://github.com/antonmi/espec)
-[Github - antonmi/espec_phoenix](https://github.com/antonmi/espec_phoenix)
-[Bootstrap4](http://v4-alpha.getbootstrap.com/)
+[Github - aforward/safetybox](https://github.com/aforward/safetybox)  
+[Github - drewolson/scrivener](https://github.com/drewolson/scrivener)  
+[Github - mgwidmann/scrivener_html](https://github.com/mgwidmann/scrivener_html)  
+[Github - doomspork/scrivener_headers](https://github.com/doomspork/scrivener_headers)  
+[Github - antonmi/espec](https://github.com/antonmi/espec)  
+[Github - antonmi/espec_phoenix](https://github.com/antonmi/espec_phoenix)  
+[Bootstrap4](http://v4-alpha.getbootstrap.com/)  
