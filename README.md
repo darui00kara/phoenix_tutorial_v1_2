@@ -47,7 +47,7 @@ Elixir言語とPhoenixフレームワークを開発したJosé Valim氏とChris
 また、Ruby on Rails Tutorialの作者様、日本語訳を実施して下さった訳者様方にも敬意と感謝を捧げます。
 この中のどなたが欠けても、本内容が完成することはなかったでしょう。  
 
-私にインスピレーションと知識を与えてくれた@hayabusa333氏にも大いなる感謝をしたいと思います。
+私にインスピレーションと知識を与えてくれた@hayabusa333氏にも大いなる感謝をしたいと思います。  
 「いつも私のわがままを聞いてくれてありがとう！」  
 
 # Wait a minute
@@ -58,14 +58,14 @@ Elixir言語とPhoenixフレームワークを開発したJosé Valim氏とChris
 
 記事を上げておいて何ですが、まだ内容に迷っている部分があります。
 前回は入れていなかった、herokuやテストの導入をどうするか...etc
-まぁ急ぎではないので気楽にやっていきます。もしかしたら途中で内容ががらりと変わるかもしれませんので、気長に完成を待ってくださると幸いです。
+まぁ急ぎではないので気楽にやっていきます。もしかしたら途中で内容ががらりと変わるかもしれませんので、気長に完成を待ってくださると幸いです。  
 
 ソースコード一式はGithubへアップしています。  
 Github: [darui00kara/phoenix_tutorial_v1_2 (master)](https://github.com/darui00kara/phoenix_tutorial_v1_2)  
 
 # Dev-Environment
 
-開発環境は下記のとおりです。
+開発環境は下記のとおりです。  
 
 - OS: Windows8.1
 - Erlang: Eshell V8.0, OTP-Version 19.0
@@ -83,7 +83,7 @@ Github: [darui00kara/phoenix_tutorial_v1_2 (master)](https://github.com/darui00k
 
 # Bibliography
 
-参考にした書籍及びサイトの一覧は下記になります。
+参考にした書籍及びサイトの一覧は下記になります。  
 
 [Ruby on Rails Tutorial](http://railstutorial.jp/)  
 [Github - aforward/safetybox](https://github.com/aforward/safetybox)  
