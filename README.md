@@ -1,6 +1,6 @@
-# バージョン: v1.2.0
-
 # Rails tutorial for Phoenix - 実例と共に不死鳥と遊ぶ -
+
+# バージョン: v1.2.0
 
 # Index
 
