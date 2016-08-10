@@ -55,8 +55,19 @@ Elixir言語とPhoenixフレームワークを開発したJosé Valim氏とChris
 本チュートリアルは、Ruby on Rails TutorialのサンプルアプリケーションをPhoenixフレームワークのv1.2で作成していきます。
 一応、Phoenixフレームワークの初心者、入門者を対象としています。  
 
-記事を上げておいて何ですが、まだ内容に迷っている部分があります。
-前回は入れていなかった、herokuやテストの導入をどうするか...etc
+~~記事を上げておいて何ですが、まだ内容に迷っている部分があります。~~
+~~前回は入れていなかった、herokuやテストの導入をどうするか...etc~~
+
+今回は、加筆修正する部分は下記のとおりです。
+
+- テストコードの実施 (ExUnitを使用)
+- 新しい章の追加
+- 各章のソースコード修正 (v1.2)
+- 該当章のライブラリのアップデートに伴うコードの修正 (多分、記述するコードが少なくなる)
+- 各章の文章を大幅見直し
+
+#### Note: herokuは使いません。理由としては、ElixirやPhoenixでのバージョンの縛りが出てしまうからです。
+
 まぁ急ぎではないので気楽にやっていきます。もしかしたら途中で内容ががらりと変わるかもしれませんので、気長に完成を待ってくださると幸いです。  
 
 ソースコード一式はGithubへアップしています。  
@@ -72,10 +83,8 @@ Github: [darui00kara/phoenix_tutorial_v1_2 (master)](https://github.com/darui00k
   * Phoenix Framework: v1.2.0
   * Safetybox: v0.1.2
   * Scrivener: v2.0.0
-  * Scrivener_html: v1.1.0
-  * Scrivener_headerss: v2.0.0
-  * espec: v0.8.27
-  * espec_phoenix: v0.3.0
+  * Scrivener_html: v1.3.1
+  * Scrivener_ecto: v1.0
 - Node.js: v6.2.2
 - PostgreSQL: postgres (PostgreSQL) 9.4.4
 - Bootstrap: v4.0.0-alpha.3
@@ -84,11 +93,10 @@ Github: [darui00kara/phoenix_tutorial_v1_2 (master)](https://github.com/darui00k
 
 参考にした書籍及びサイトの一覧は下記になります。  
 
-[Ruby on Rails Tutorial](http://railstutorial.jp/)  
+[Ruby on Rails Tutorial Learn Web Development with Rails](https://www.railstutorial.org/book)
+[Ruby on Rails チュートリアル 実例を使ってRailsを学ぼう](http://railstutorial.jp/)  
 [Github - aforward/safetybox](https://github.com/aforward/safetybox)  
 [Github - drewolson/scrivener](https://github.com/drewolson/scrivener)  
 [Github - mgwidmann/scrivener_html](https://github.com/mgwidmann/scrivener_html)  
-[Github - doomspork/scrivener_headers](https://github.com/doomspork/scrivener_headers)  
-[Github - antonmi/espec](https://github.com/antonmi/espec)  
-[Github - antonmi/espec_phoenix](https://github.com/antonmi/espec_phoenix)  
+[Github - drewolson/scrivener_ecto](https://github.com/drewolson/scrivener_ecto)
 [Bootstrap4](http://v4-alpha.getbootstrap.com/)  
