@@ -58,7 +58,7 @@ Elixir言語とPhoenixフレームワークを開発したJosé Valim氏とChris
 ~~記事を上げておいて何ですが、まだ内容に迷っている部分があります。~~
 ~~前回は入れていなかった、herokuやテストの導入をどうするか...etc~~
 
-今回は、加筆修正する部分は下記のとおりです。
+今回は、加筆修正する部分は下記のとおりです。  
 
 - テストコードの実施 (ExUnitを使用)
 - 新しい章の追加
@@ -93,10 +93,10 @@ Github: [darui00kara/phoenix_tutorial_v1_2 (master)](https://github.com/darui00k
 
 参考にした書籍及びサイトの一覧は下記になります。  
 
-[Ruby on Rails Tutorial Learn Web Development with Rails](https://www.railstutorial.org/book)
+[Ruby on Rails Tutorial Learn Web Development with Rails](https://www.railstutorial.org/book)  
 [Ruby on Rails チュートリアル 実例を使ってRailsを学ぼう](http://railstutorial.jp/)  
 [Github - aforward/safetybox](https://github.com/aforward/safetybox)  
 [Github - drewolson/scrivener](https://github.com/drewolson/scrivener)  
 [Github - mgwidmann/scrivener_html](https://github.com/mgwidmann/scrivener_html)  
-[Github - drewolson/scrivener_ecto](https://github.com/drewolson/scrivener_ecto)
+[Github - drewolson/scrivener_ecto](https://github.com/drewolson/scrivener_ecto)  
 [Bootstrap4](http://v4-alpha.getbootstrap.com/)  
