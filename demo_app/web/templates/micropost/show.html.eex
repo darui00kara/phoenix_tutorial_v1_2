@@ -1,0 +1,18 @@
+<h2>Show micropost</h2>
+
+<ul>
+
+  <li>
+    <strong>Content:</strong>
+    <%= @micropost.content %>
+  </li>
+
+  <li>
+    <strong>User:</strong>
+    <%= @micropost.user_id %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: micropost_path(@conn, :edit, @micropost) %>
+<%= link "Back", to: micropost_path(@conn, :index) %>
