@@ -4,7 +4,7 @@ defmodule DemoApp.User do
   schema "users" do
     field :name, :string
     field :email, :string
-    has_many: :microposts, DemoApp.Micropost
+    has_many :microposts, DemoApp.Micropost
 
     timestamps()
   end
