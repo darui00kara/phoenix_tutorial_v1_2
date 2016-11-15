@@ -15,4 +15,12 @@ defmodule SampleApp.StaticPageControllerTest do
     conn = get conn, "/about"
     assert html_response(conn, 200) =~ "Welcome to Static Pages About!"
   end
+
+  test "GET /home in floki", %{conn: conn} do
+    get(conn, "/home")
+    |> html_response(200)
+    |> Floki.find("h2")
+    |> Floki.DeepText.get
+    |> assert("Welcome to Static Pages Home!")
+  end
 end

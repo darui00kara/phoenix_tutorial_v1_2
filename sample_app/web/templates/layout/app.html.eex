@@ -9,27 +9,41 @@
 
     <title>Hello SampleApp!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
 
   <body>
-    <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-          </ul>
-        </nav>
-        <span class="logo"></span>
-      </header>
+    <header class="header navbar navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="logo" href="<%= page_path(@conn, :index) %>"></a>
+          <nav role="navigation">
+            <ul class="nav nav-pills pull-right">
+              <li><a href="<%= static_page_path(@conn, :home) %>">Home</a></li>
+              <li><a href="<%= static_page_path(@conn, :help) %>">Help</a></li>
+              <li><a href="<%= static_page_path(@conn, :about) %>">About</a></li>
+              <li><a href=#>Sign in</a></li>
+              <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+            </ul>
+          </nav>
+        </div> <!-- container -->
+      </div> <!-- navbar-inner -->
+    </header>
 
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+    <div class="container">
+      <h2>
+        <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+        <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      </h2>
 
       <main role="main">
         <%= render @view_module, @view_template, assigns %>
       </main>
-
     </div> <!-- /container -->
+
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
