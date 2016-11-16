@@ -1,0 +1,14 @@
+<header class="header navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="logo" href="<%= page_path(@conn, :index) %>"></a>
+      <nav role="navigation">
+        <ul class="nav nav-pills pull-right">
+          <li><%= link "Home", to: static_page_path(@conn, :home) %></li>
+          <li><%= link "Help", to: static_page_path(@conn, :help) %></li>
+          <li><a href=#>Sign in</a></li>
+        </ul>
+      </nav>
+    </div> <!-- container -->
+  </div> <!-- navbar-inner -->
+</header>

@@ -23,4 +23,12 @@ defmodule SampleApp.StaticPageControllerTest do
     |> Floki.DeepText.get
     |> assert("Welcome to Static Pages Home!")
   end
+
+  test "GET /home 2 in floki", %{conn: conn} do
+    get(conn, "/home")
+    |> html_response(200)
+    |> Floki.find("ul li")
+    |> Floki.find("li a")
+    |> Floki.attribute("href")
+  end
 end
