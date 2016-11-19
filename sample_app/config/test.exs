@@ -17,3 +17,7 @@ config :sample_app, SampleApp.Repo,
   database: "sample_app_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+# Configure comeonin option
+config :comeonin, :bcrypt_log_rounds, 4
+config :comeonin, :pdkdf2_rounds, 1
