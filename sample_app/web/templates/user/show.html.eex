@@ -1,0 +1,4 @@
+<div class="jumbotron">
+  <strong>Name:</strong><%= @user.name %>
+  <strong>Email:</strong><%= @user.email %>
+</div>

@@ -26,25 +26,17 @@ defmodule SampleApp.User do
     |> validate_length(:email, max: 50)
     |> validate_length(:password, min: 8)
     |> validate_length(:password, max: 72)
+    |> set_password_digest
   end
 
-  @doc """
-  Using Ecto.Multi.run/3 before insert function.
-
-  ## Examples
-
-      Ecto.Multi.new
-      |> Ecto.Multi.run(:set_password_digest, &User.set_password_digest/1)
-      |> Ecto.Multi.insert(...)
-  """
   def set_password_digest(changeset) do
-    case Ecto.Changeset.get_change changeset, :password do
+    password = get_change changeset, :password
+
+    case password do
       nil ->
-        {:error, changeset}
-      _ ->
-        password_digest = get_field(changeset, :password) |> Encryption.encrypt
-        change(changeset, %{password_digest: password_digest})
-        {:ok, changeset}
+        changeset
+        _ ->
+        put_change changeset, :password_digest, Encryption.encrypt password
     end
   end
 end
