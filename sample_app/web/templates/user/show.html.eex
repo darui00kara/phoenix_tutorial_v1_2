@@ -1,4 +1,5 @@
 <div class="jumbotron">
+  <img src="<%= gravatar_for(@user) %>" class="gravatar">
   <strong>Name:</strong><%= @user.name %>
   <strong>Email:</strong><%= @user.email %>
 </div>
