@@ -1,0 +1,16 @@
+/* Debug */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  color: inherit;
+  background-color: #eee;
+  @include box_sizing;
+  p {
+    margin-bottom: 1px;
+    font-size: 15px;
+    font-weight: 200;
+  }
+}
