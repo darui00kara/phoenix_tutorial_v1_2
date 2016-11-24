@@ -1,5 +1,10 @@
-<div class="jumbotron">
-  <img src="<%= gravatar_for(@user) %>" class="gravatar">
-  <strong>Name:</strong><%= @user.name %>
-  <strong>Email:</strong><%= @user.email %>
+<div class="row">
+  <aside class="col-md-4">
+    <section>
+      <h1>
+        <img src="<%= gravatar_for(@user) %>" class="gravatar">
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
 </div>

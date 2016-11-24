@@ -4,7 +4,8 @@ defmodule SampleApp.UserController do
   alias SampleApp.User
 
   def new(conn, _params) do
-    render conn, "new.html"
+    changeset = User.changeset(%User{})
+    render(conn, "new.html", changeset: changeset)
   end
 
   def show(conn, %{"id" => id}) do
