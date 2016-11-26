@@ -6,7 +6,7 @@
         <ul class="nav nav-pills pull-right">
           <li><%= link "Home", to: static_page_path(@conn, :home) %></li>
           <li><%= link "Help", to: static_page_path(@conn, :help) %></li>
-          <li><a href=#>Sign in</a></li>
+          <li><%= link "Signin", to: session_path(@conn, :new) %></li>
         </ul>
       </nav>
     </div> <!-- container -->
