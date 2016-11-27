@@ -26,4 +26,8 @@ defmodule SampleApp.UserController do
         render(conn, "new.html", changeset: changeset)
     end
   end
+
+  def edit(conn, %{"id" => id}) do
+    redirect(conn, to: static_page_path(conn, :home))
+  end
 end
