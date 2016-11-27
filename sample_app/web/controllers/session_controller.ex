@@ -14,6 +14,7 @@ defmodule SampleApp.SessionController do
       {:ok, user} ->
         conn
         |> put_flash(:info, "User signin is success!")
+        |> put_session(:user_id, user.id)
         |> redirect(to: static_page_path(conn, :home))
       :error ->
         conn
