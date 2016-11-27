@@ -24,6 +24,9 @@ defmodule SampleApp.SessionController do
   end
 
   def delete(conn, _params) do
-    redirect(conn, to: static_page_path(conn, :home))
+    conn
+    |> put_flash(:info, "Signout now! See you again!!")
+    |> delete_session(:user_id)
+    |> redirect(to: static_page_path(conn, :home))
   end
 end

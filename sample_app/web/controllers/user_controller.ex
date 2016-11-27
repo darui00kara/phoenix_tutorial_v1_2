@@ -17,9 +17,10 @@ defmodule SampleApp.UserController do
     changeset = User.changeset(%User{}, user_params)
 
     case Repo.insert(changeset) do
-      {:ok, _user} ->
+      {:ok, user} ->
         conn
         |> put_flash(:info, "User created successfully.")
+        |> put_session(:user_id, user.id)
         |> redirect(to: static_page_path(conn, :home))
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)

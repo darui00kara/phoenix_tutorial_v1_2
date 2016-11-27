@@ -5,8 +5,24 @@
       <nav role="navigation">
         <ul class="nav nav-pills pull-right">
           <li><%= link "Home", to: static_page_path(@conn, :home) %></li>
-          <li><%= link "Help", to: static_page_path(@conn, :help) %></li>
-          <li><%= link "Signin", to: session_path(@conn, :new) %></li>
+          <%= if current_user(@conn) do %>
+            <li class="dropdown">
+              <!-- Dropdown Menu -->
+              <a href="#" class="dropdown-toggle" id="account" data-toggle="dropdown">
+                User Menu
+                <span class="caret"></span>
+              </a>
+              <!-- Dropdown List -->
+              <ul class="dropdown-menu" aria-labelledby="account">
+                <li><%= link "Profile", to: user_path(@conn, :show, current_user(@conn)) %><li>
+                <li><%= link "Help", to: static_page_path(@conn, :help) %></li>
+                <li class="divider"></li>
+              </ul>
+              <li><%= link "Signout", to: session_path(@conn, :delete), method: :delete %></li>
+            </li>
+          <% else %>
+            <li><%= link "Signin", to: session_path(@conn, :new) %></li>
+          <% end %>
         </ul>
       </nav>
     </div> <!-- container -->

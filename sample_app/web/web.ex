@@ -36,6 +36,8 @@ defmodule SampleApp.Web do
 
       import SampleApp.Router.Helpers
       import SampleApp.Gettext
+
+      plug SampleApp.Plugs.CheckAuthentication
     end
   end
 
@@ -53,6 +55,7 @@ defmodule SampleApp.Web do
       import SampleApp.Router.Helpers
       import SampleApp.ErrorHelpers
       import SampleApp.Gettext
+      import SampleApp.Helpers.ViewHelper
     end
   end
 
