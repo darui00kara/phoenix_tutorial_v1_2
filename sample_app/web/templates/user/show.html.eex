@@ -6,5 +6,8 @@
         <%= @user.name %>
       </h1>
     </section>
+    <section>
+      <%= link "Edit", to: user_path(@conn, :edit, @user), class: "btn btn-default btn-xs" %>
+    </section>
   </aside>
 </div>

@@ -1,0 +1,5 @@
+<h1>Edit Profile</h1>
+
+<%= render SampleApp.UserView, "form.html", changeset: @changeset,
+                                            action: user_path(@conn, :update, @user),
+                                            submit: "Update" %>
