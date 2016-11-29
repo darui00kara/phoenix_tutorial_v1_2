@@ -3,6 +3,9 @@ defmodule SampleApp.UserController do
 
   alias SampleApp.User
 
+  plug SampleApp.Plugs.SignedInUser when action in [:show, :edit, :update]
+  plug :correct_user? when action in [:show, :edit, :update]
+
   def show(conn, %{"id" => id}) do
     user = Repo.get!(User, id)
     render(conn, "show.html", user: user)
@@ -45,5 +48,27 @@ defmodule SampleApp.UserController do
       {:error, failed_changeset} ->
         render(conn, "edit.html", user: user, changeset: failed_changeset)
     end
+  end
+
+  def index(conn, _params) do
+    users = Repo.all(User)
+    render(conn, "index.html", users: users)
+  end
+
+  defp correct_user?(conn, _) do
+    user = Repo.get(User, String.to_integer(conn.params["id"]))
+
+    if current_user?(conn, user) do
+      conn
+    else
+      conn
+      |> put_flash(:info, "Please signin.")
+      |> redirect(to: session_path(conn, :new))
+      |> halt
+    end
+  end
+
+  defp current_user?(conn, user) do
+    conn.assigns[:current_user] == user
   end
 end

@@ -14,6 +14,7 @@
               </a>
               <!-- Dropdown List -->
               <ul class="dropdown-menu" aria-labelledby="account">
+                <li><%= link "All Users", to: user_path(@conn, :index) %><li>
                 <li><%= link "Profile", to: user_path(@conn, :show, current_user(@conn)) %><li>
                 <li><%= link "Help", to: static_page_path(@conn, :help) %></li>
                 <li class="divider"></li>
