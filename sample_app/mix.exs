@@ -40,9 +40,9 @@ defmodule SampleApp.Mixfile do
      {:cowboy, "~> 1.0"},
      {:floki, "~> 0.11.0"},
      {:comeonin, "~> 2.5"},
-     {:scrivener, "~> 2.0"},
-     {:scrivener_ecto, "~> 1.0"},
-     {:scrivener_html, "~> 1.1"}]
+     {:scrivener, "~> 2.1.1"},
+     {:scrivener_ecto, "~> 1.0.3"},
+     {:scrivener_html, "~> 1.3.3"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

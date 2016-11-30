@@ -3,7 +3,7 @@ defmodule SampleApp.UserController do
 
   alias SampleApp.User
 
-  plug SampleApp.Plugs.SignedInUser when action in [:show, :edit, :update]
+  plug SampleApp.Plugs.SignedInUser when action in [:show, :edit, :update, :index]
   plug :correct_user? when action in [:show, :edit, :update]
 
   def show(conn, %{"id" => id}) do
@@ -50,9 +50,17 @@ defmodule SampleApp.UserController do
     end
   end
 
-  def index(conn, _params) do
-    users = Repo.all(User)
-    render(conn, "index.html", users: users)
+  def index(conn, params) do
+    users = from(u in User, order_by: [asc: :name])
+            |> Repo.paginate(params)
+
+    if users do
+      render(conn, "index.html", users: users)
+    else
+      conn
+      |> put_flash(:error, "Invalid page number!!")
+      |> render("index.html", users: [])
+    end
   end
 
   defp correct_user?(conn, _) do
