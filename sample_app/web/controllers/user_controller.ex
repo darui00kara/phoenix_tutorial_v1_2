@@ -3,8 +3,8 @@ defmodule SampleApp.UserController do
 
   alias SampleApp.User
 
-  plug SampleApp.Plugs.SignedInUser when action in [:show, :edit, :update, :index]
-  plug :correct_user? when action in [:show, :edit, :update]
+  plug SampleApp.Plugs.SignedInUser when action in [:show, :edit, :update, :index, :delete]
+  plug :correct_user? when action in [:edit, :update, :delete]
 
   def show(conn, %{"id" => id}) do
     user = Repo.get!(User, id)
@@ -61,6 +61,15 @@ defmodule SampleApp.UserController do
       |> put_flash(:error, "Invalid page number!!")
       |> render("index.html", users: [])
     end
+  end
+
+  def delete(conn, %{"id" => id}) do
+    Repo.get(User, id) |> Repo.delete
+
+    conn
+    |> put_flash(:info, "User deleted successfully.")
+    |> delete_session(:user_id)
+    |> redirect(to: static_page_path(conn, :home))
   end
 
   defp correct_user?(conn, _) do

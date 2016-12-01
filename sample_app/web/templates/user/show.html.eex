@@ -8,6 +8,10 @@
     </section>
     <section>
       <%= link "Edit", to: user_path(@conn, :edit, @user), class: "btn btn-default btn-xs" %>
+      <%= button "Delete", to: user_path(@conn, :delete, @user),
+                           method: :delete,
+                           onclick: "return confirm(\"Are you sure?\");",
+                           class: "btn btn-danger btn-xs" %>
     </section>
   </aside>
 </div>
