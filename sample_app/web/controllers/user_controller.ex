@@ -2,13 +2,25 @@ defmodule SampleApp.UserController do
   use SampleApp.Web, :controller
 
   alias SampleApp.User
+  alias SampleApp.Micropost
 
   plug SampleApp.Plugs.SignedInUser when action in [:show, :edit, :update, :index, :delete]
   plug :correct_user? when action in [:edit, :update, :delete]
 
-  def show(conn, %{"id" => id}) do
-    user = Repo.get!(User, id)
-    render(conn, "show.html", user: user)
+  def show(conn, %{"id" => id} = params) do
+    user  = Repo.get!(User, id)
+    posts = from(m in Micropost,
+                   where: m.user_id == ^user.id,
+                     order_by: [desc: :inserted_at])
+            |> Repo.paginate(params)
+
+    if posts do
+      render(conn, "show.html", user: user, posts: posts)
+    else
+      conn
+      |> put_flash(:error, "Invalid page number!!")
+      |> render("show.html", user: user, posts: [])
+    end
   end
 
   def new(conn, _params) do

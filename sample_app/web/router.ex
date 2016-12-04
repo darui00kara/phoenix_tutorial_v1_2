@@ -26,6 +26,7 @@ defmodule SampleApp.Router do
     get "/signin", SessionController, :new
     post "/session", SessionController, :create
     delete "/signout", SessionController, :delete
+    resources "/post", MicropostController, only: [:create, :delete]
   end
 
   # Other scopes may use custom stacks.

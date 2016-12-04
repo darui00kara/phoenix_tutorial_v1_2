@@ -1,17 +1,39 @@
 <div class="row">
   <aside class="col-md-4">
     <section>
-      <h1>
-        <img src="<%= gravatar_for(@user) %>" class="gravatar">
-        <%= @user.name %>
-      </h1>
+      <%= render SampleApp.SharedView, "user_info.html",
+                                       conn: @conn,
+                                       user: @user %>
     </section>
+    <%= if current_user?(@conn, @user) do %>
+      <section>
+        <%= link "Edit", to: user_path(@conn, :edit, @user),
+                         class: "btn btn-default btn-xs" %>
+        <%= button "Delete", to: user_path(@conn, :delete, @user),
+                             method: :delete,
+                             onclick: "return confirm(\"Are you sure?\");",
+                             class: "btn btn-danger btn-xs" %>
+      </section>
+    <% end %>
     <section>
-      <%= link "Edit", to: user_path(@conn, :edit, @user), class: "btn btn-default btn-xs" %>
-      <%= button "Delete", to: user_path(@conn, :delete, @user),
-                           method: :delete,
-                           onclick: "return confirm(\"Are you sure?\");",
-                           class: "btn btn-danger btn-xs" %>
+      <%= render SampleApp.MicropostView, "form.html",
+                                          conn: @conn,
+                                          user: @user %>
     </section>
   </aside>
+
+  <div class="col-md-8">
+    <%= unless is_empty_list?(@posts.entries) do %>
+      <h3>Microposts</h3>
+      <%= render SampleApp.SharedView, "microposts.html",
+                                       conn: @conn,
+                                       posts: @posts,
+                                       user: @user %>
+      
+      <%= Scrivener.HTML.pagination_links @conn, @posts, [@user],
+                                          view_style: :bootstrap,
+                                          path: &user_path/4,
+                                          action: :show %>
+    <% end %>
+  </div>
 </div>

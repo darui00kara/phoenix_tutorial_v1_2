@@ -9,6 +9,8 @@ defmodule SampleApp.User do
     field :password, :string, virtual: true
     field :password_digest, :string
 
+    has_many :microposts, SampleApp.Micropost
+
     timestamps()
   end
 

@@ -1,10 +1,10 @@
 defmodule SampleApp.Helpers.Gravatar do
   def get_gravatar_url(email, size) do
-    gravatar_id = email_to_gravator_id(email)
+    gravatar_id = email_to_gravatar_id(email)
     "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
   end
 
-  defp email_to_gravator_id(email) do
+  defp email_to_gravatar_id(email) do
     email |> email_downcase |> email_crypt_md5
   end
 
