@@ -11,6 +11,12 @@ defmodule SampleApp.User do
 
     has_many :microposts, SampleApp.Micropost
 
+    has_many :followed_users, SampleApp.Relationship, foreign_key: :follower_id
+    has_many :relationships, through: [:followed_users, :followed_user]
+
+    has_many :followers, SampleApp.Relationship, foreign_key: :followed_id
+    has_many :relationships, through: [:followers, :follower]
+
     timestamps()
   end
 
