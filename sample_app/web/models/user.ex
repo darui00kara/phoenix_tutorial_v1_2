@@ -15,7 +15,7 @@ defmodule SampleApp.User do
     has_many :relationships, through: [:followed_users, :followed_user]
 
     has_many :followers, SampleApp.Relationship, foreign_key: :followed_id
-    has_many :relationships, through: [:followers, :follower]
+    has_many :reverse_relationships, through: [:followers, :follower]
 
     timestamps()
   end
