@@ -4,11 +4,14 @@ defmodule SampleApp.UserController do
   alias SampleApp.User
   alias SampleApp.Micropost
 
-  plug SampleApp.Plugs.SignedInUser when action in [:show, :edit, :update, :index, :delete]
+  plug SampleApp.Plugs.SignedInUser when action
+    in [:show, :edit, :update, :index, :delete, :following, :followers]
   plug :correct_user? when action in [:edit, :update, :delete]
 
   def show(conn, %{"id" => id} = params) do
-    user  = Repo.get!(User, id)
+    user  = Repo.get(User, id)
+            |> Repo.preload(:relationships)
+            |> Repo.preload(:reverse_relationships)
     posts = from(m in Micropost,
                    where: m.user_id == ^user.id,
                      order_by: [desc: :inserted_at])
@@ -82,6 +85,30 @@ defmodule SampleApp.UserController do
     |> put_flash(:info, "User deleted successfully.")
     |> delete_session(:user_id)
     |> redirect(to: static_page_path(conn, :home))
+  end
+
+  def following(conn, %{"id" => id} = params) do
+    user  = Repo.get(User, id)
+            |> Repo.preload(:relationships)
+            |> Repo.preload(:reverse_relationships)
+    id_list = Enum.reduce(user.followed_users, [], fn(followed_user, acc) ->
+                case Map.get(followed_user, :followed_id) do
+                  nil -> acc
+                  followed_id -> [followed_id | acc]
+                end
+              end) |> Enum.reverse
+    users = from(u in SampleApp.User,
+              where: u.id in ^id_list,
+              order_by: [asc: :name])
+            |> Repo.paginate(params)
+
+    if users do
+      render(conn, "following.html", user: user, users: users)
+    else
+      conn
+      |> put_flash(:error, "Invalid page number!!")
+      |> render("following.html", user: user, users: [])
+    end
   end
 
   defp correct_user?(conn, _) do

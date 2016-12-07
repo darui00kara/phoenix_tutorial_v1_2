@@ -5,6 +5,11 @@
                                        conn: @conn,
                                        user: @user %>
     </section>
+    <section>
+      <%= render SampleApp.SharedView, "stats.html",
+                                       conn: @conn,
+                                       user: @user %>
+    </section>
     <%= if current_user?(@conn, @user) do %>
       <section>
         <%= link "Edit", to: user_path(@conn, :edit, @user),
