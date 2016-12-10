@@ -18,8 +18,9 @@
                 <li><%= link "Profile", to: user_path(@conn, :show, current_user(@conn)) %><li>
                 <li><%= link "Help", to: static_page_path(@conn, :help) %></li>
                 <li class="divider"></li>
+                <li><%= link "Signout", to: session_path(@conn, :delete), method: :delete %></li>
               </ul>
-              <li><%= link "Signout", to: session_path(@conn, :delete), method: :delete %></li>
+              
             </li>
           <% else %>
             <li><%= link "Signin", to: session_path(@conn, :new) %></li>

@@ -28,6 +28,7 @@
   </aside>
 
   <div class="col-md-8">
+    <%= render SampleApp.RelationshipView, "form.html", conn: @conn, user: @user %>
     <%= unless is_empty_list?(@posts.entries) do %>
       <h3>Microposts</h3>
       <%= render SampleApp.SharedView, "microposts.html",

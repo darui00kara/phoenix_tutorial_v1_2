@@ -29,6 +29,7 @@ defmodule SampleApp.Router do
     resources "/post", MicropostController, only: [:create, :delete]
     get "/user/:id/following", UserController, :following
     get "/user/:id/followers", UserController, :followers
+    resources "/relationship", RelationshipController, only: [:create, :delete]
   end
 
   # Other scopes may use custom stacks.

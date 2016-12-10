@@ -6,7 +6,10 @@ defmodule SampleApp.MicropostController do
   plug SampleApp.Plugs.SignedInUser
 
   def create(conn, %{"micropost_param" => %{"content" => content}}) do
-    changeset =  Ecto.build_assoc(conn.assigns[:current_user], :microposts, content: content)
+    changeset =  Ecto.build_assoc(
+                   conn.assigns[:current_user],
+                   :microposts, content:
+                   content)
 
     conn = case Repo.insert(changeset) do
       {:ok, _} ->

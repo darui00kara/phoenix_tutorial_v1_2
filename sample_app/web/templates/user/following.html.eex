@@ -1,0 +1,5 @@
+<h1>Followed users</h1>
+
+<%= render  "show_follow.html",
+      action: :following, path: &user_path/4,
+      conn: @conn, user: @user, users: @users %>

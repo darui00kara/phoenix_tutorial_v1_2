@@ -1,0 +1,40 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section>
+      <%= render SampleApp.SharedView, "user_info.html",
+                                       conn: @conn,
+                                       user: @user %>
+    </section>
+    <section>
+      <%= render SampleApp.SharedView, "stats.html",
+                                       conn: @conn,
+                                       user: @user %>
+      <%= unless is_empty_list?(@users.entries) do %>
+        <div class="user_avatars">
+          <%= for follow_user <- @users.entries do %>
+            <a href="<%= user_path(@conn, :show, follow_user) %>">
+              <img src="<%= gravatar_for(follow_user) %>" class="gravatar">
+            </a>
+          <% end %>
+        </div>
+      <% end %>
+    </section>
+  </aside>
+
+  <div class="col-md-8">
+    <h3>Users</h3>
+    <%= unless is_empty_list?(@users.entries) do %>
+      <ul class="users">
+        <%= for follow_user <- @users.entries do %>
+          <%= render "user.html", conn: @conn, user: follow_user %>
+        <% end %>
+      </ul>
+
+      
+      <%= Scrivener.HTML.pagination_links @conn, @users, [@user],
+                                          view_style: :bootstrap,
+                                          path: @path,
+                                          action: @action %>     
+    <% end %>
+  </div>
+</div>
