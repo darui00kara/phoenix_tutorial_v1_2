@@ -3,9 +3,10 @@
 
 # Index
 
-Phoenix Tutorial  
+Phoenix Tutorial 
+|> Introduction  
 |> What is Phoenix-Framework?  
-|> [Demo application](http://daruiapprentice.blogspot.jp/2016/08/phoenix-tutorial-v1-2-demo-app.html)  
+|> Demo application  
 |> Static pages  
 |> Filling in layout  
 |> Modeling users  
@@ -14,6 +15,8 @@ Phoenix Tutorial
 |> Updating users  
 |> User microposts  
 |> Following users  
+
+[Click here for details](https://github.com/darui00kara/phoenix_tutorial_guide)
 
 # Foreword
 
@@ -58,13 +61,13 @@ Elixir言語とPhoenixフレームワークを開発したJosé Valim氏とChris
 
 今回は、加筆修正する部分は下記のとおりです。  
 
-- テストコードの実施 (ExUnitを使用)
-- 新しい章の追加
+- ~~テストコードの実施 (ExUnitを使用)~~
+- ~~新しい章の追加~~
 - 各章のソースコード修正 (v1.2)
 - 該当章のライブラリのアップデートに伴うコードの修正 (多分、記述するコードが少なくなる)
 - 各章の文章を大幅見直し(？)
 
-#### Note: herokuは使いません。理由としては、ElixirやPhoenixでのバージョンの縛りが出てしまうからです。
+#### Note: herokuは使いません。
 
 まぁ急ぎではないので気楽にやっていきます。もしかしたら途中で内容ががらりと変わるかもしれませんので、気長に完成を待ってくださると幸いです。  
 
@@ -79,13 +82,13 @@ Github: [darui00kara/phoenix_tutorial_v1_2 (master)](https://github.com/darui00k
 - Erlang: Eshell V8.1, OTP-Version 19
 - Elixir: v1.3.3
   * Phoenix Framework: v1.2.1
-  * Comeonin: v2.6.0
-  * Scrivener: v2.0.0
-  * Scrivener_html: v1.3.1
-  * Scrivener_ecto: v1.0
-- Node.js: v6.7.0
+  * Comeonin: v2.5.0
+  * Scrivener: v2.1.1
+  * Scrivener_html: v1.3.3
+  * Scrivener_ecto: v1.0.3
+- Node.js: v7.0.0
 - PostgreSQL: postgres (PostgreSQL) 9.5.4
-- Bootstrap: v4.0.0-alpha.4
+- Bootstrap: v3.3.7
 
 # Bibliography
 
@@ -97,4 +100,3 @@ Github: [darui00kara/phoenix_tutorial_v1_2 (master)](https://github.com/darui00k
 [Github - drewolson/scrivener](https://github.com/drewolson/scrivener)  
 [Github - mgwidmann/scrivener_html](https://github.com/mgwidmann/scrivener_html)  
 [Github - drewolson/scrivener_ecto](https://github.com/drewolson/scrivener_ecto)  
-[Bootstrap4](http://v4-alpha.getbootstrap.com/)  
