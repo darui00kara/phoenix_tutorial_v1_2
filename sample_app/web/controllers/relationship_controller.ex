@@ -6,6 +6,7 @@ defmodule SampleApp.RelationshipController do
   plug SampleApp.Plugs.SignedInUser
 
   def create(conn, %{"follow_id" => follow_id}) do
+    IO.inspect [signin_id: conn.assigns[:current_user].id, follow_id: follow_id]
     Following.follow!(conn.assigns[:current_user].id, follow_id)
 
     conn

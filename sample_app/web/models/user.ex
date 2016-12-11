@@ -17,6 +17,13 @@ defmodule SampleApp.User do
     has_many :followers, SampleApp.Relationship, foreign_key: :followed_id
     has_many :reverse_relationships, through: [:followers, :follower]
 
+    #many_to_many :followed_users, SampleApp.Relationship,
+    #             join_through: "relationships",
+    #             join_keys: [follower_id: :id, followed_id: :id]
+
+    #many_to_many :followers, SampleApp.Relationship,
+    #             join_through: "relationships",
+    #             join_keys: [followed_id: :id, follower_id: :id]
     timestamps()
   end
 

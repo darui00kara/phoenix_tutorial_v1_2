@@ -1,3 +1,5 @@
+<h1>User Profile</h1>
+
 <div class="row">
   <aside class="col-md-4">
     <section>
@@ -32,14 +34,14 @@
     <%= unless is_empty_list?(@posts.entries) do %>
       <h3>Microposts</h3>
       <%= render SampleApp.SharedView, "microposts.html",
-                                       conn: @conn,
+                                       conn:  @conn,
                                        posts: @posts,
-                                       user: @user %>
+                                       user:  @user %>
       
-      <%= Scrivener.HTML.pagination_links @conn, @posts, [@user],
-                                          view_style: :bootstrap,
-                                          path: &user_path/4,
-                                          action: :show %>
+      <%= pagination_links @conn, @posts, [@user],
+                           view_style: :bootstrap,
+                           path: &user_path/4,
+                           action: :show %>
     <% end %>
   </div>
 </div>

@@ -13,7 +13,8 @@
         <div class="user_avatars">
           <%= for follow_user <- @users.entries do %>
             <a href="<%= user_path(@conn, :show, follow_user) %>">
-              <img src="<%= gravatar_for(follow_user) %>" class="gravatar">
+              <img src="<%= gravatar_for(follow_user) %>"
+                   class="gravatar">
             </a>
           <% end %>
         </div>
@@ -29,12 +30,11 @@
           <%= render "user.html", conn: @conn, user: follow_user %>
         <% end %>
       </ul>
-
       
-      <%= Scrivener.HTML.pagination_links @conn, @users, [@user],
-                                          view_style: :bootstrap,
-                                          path: @path,
-                                          action: @action %>     
+      <%= pagination_links @conn, @users, [@user],
+                           view_style: :bootstrap,
+                           path: @path,
+                           action: @action %>     
     <% end %>
   </div>
 </div>

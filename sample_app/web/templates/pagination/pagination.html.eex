@@ -1,1 +1,0 @@
-<%= pagination_links @conn, @pages, view_style: :bootstrap %>

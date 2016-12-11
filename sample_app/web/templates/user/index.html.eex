@@ -1,11 +1,11 @@
 <h1>All users</h1>
 
 <%= if !is_empty_list?(@users.entries) do %>
-  <%= render SampleApp.PaginationView, "pagination.html", conn: @conn, pages: @users %>
+  <%= pagination_links @conn, @users, view_style: :bootstrap %>
   <ul class="users">
     <%= for user <- @users.entries do %>
       <%= render "user.html", conn: @conn, user: user %>
     <% end %>
   </ul>
-  <%= render SampleApp.PaginationView, "pagination.html", conn: @conn, pages: @users %>
+  <%= pagination_links @conn, @users, view_style: :bootstrap %>
 <% end %>
