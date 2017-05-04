@@ -1,3 +1,7 @@
+# Deplecated!!
+
+[next new tutorial let's toy!](https://github.com/darui00kara/phoenix_tutorial_v1_3)  
+
 # Rails tutorial for Phoenix - 実例と共に不死鳥と遊ぶ -
 # Version: v1.2.1
 
